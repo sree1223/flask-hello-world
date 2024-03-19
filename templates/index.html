@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Send the login credentials to the server
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Invalid username or password');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Save the JWT token in session/local storage or cookie
+                // For demonstration, we'll just alert the token
+                alert('JWT Token: ' + data.access_token);
+
+                // Now make a request to a protected route with the token
+                fetch('/protected', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': data.access_token
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display the response from the protected route
+                    alert('Response from protected route: ' + JSON.stringify(data));
+                })
+                .catch(error => {
+                    alert('Error: ' + error.message);
+                });
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+            });
+        });
+    </script>
+</body>
+</html>

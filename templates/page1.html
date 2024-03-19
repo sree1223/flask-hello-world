@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad&family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100;300&family=Sniglet&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            background-image: url('/static/image3.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            font-family: "Amaranth", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .logdiv1{
+            width: 85%;
+            max-width: 800px;
+            height: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 50px 0px rgb(128, 128, 128);
+            border-radius: 20px;
+            position: absolute;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logdiv2{
+            padding: 8%;
+            display: block;
+            width: 100%;
+        }
+        .logh1{
+            text-align: center;
+            width: 100%;
+            color: white;
+        }
+
+        .logdiv3{
+            width: 100%;
+            max-width: 400px;
+            background-color: rgb(66, 97, 155);
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 7px;
+            display: flex;
+            flex-direction: row;
+        }
+        .logdiv3>*{
+            transform: scale(1.1);
+        }
+        .loginp1{
+            flex-grow: 1;
+            border-radius: 5px;
+            outline: 0px;
+            border: 0px;
+            padding: 8px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-family: "Amaranth", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            
+
+        }
+        .logeye1,.logdiv4{
+            background-color: rgb(223, 223, 223);
+            padding: 6px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 5px;
+            border: 0px solid white;
+            font-size: 900;
+            font-size: 1em;
+        }
+        .logeye1{
+            
+            font-size: 900;
+            font-size: 1.2em;
+            width: 110px;
+        }
+        #logbutton{
+            margin: auto;
+            margin-top: 40px;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0) scale(1.3);
+            border: 0px;
+            border-radius: 8px;
+            background-color: black;
+            color: white;
+            padding: 7px;
+            padding-left: 14px;
+            padding-right: 14px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <h1></h1>
+    <div class="logdiv1">
+        <div class="logdiv2">
+            <h1 class="logh1">
+                Login
+            </h1>
+            <div class="logdiv3">
+                <input type="text" placeholder="Email" class="loginp1">
+                <div class="logdiv4" id="logdiv4">@email.com</div>
+            </div>
+            <div class="logdiv3">
+                <input type="text" placeholder="Password" class="loginp1">
+                <button class="bi bi-eye-fill logeye1"></button>
+            </div>
+            <button class="logbut2" id="logbutton">
+                Login
+            </button>
+        </div>
+    </div>
+</body>
+</html>
